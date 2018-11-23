@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "^23.3.9",
-    "@types/node": "^10.12.10",
-    "@types/react": "^16.7.7",
-    "@types/react-dom": "^16.0.10",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.7.0",
+    "@types/react": "^16.4.9",
+    "@types/react-dom": "^16.0.7",
+    "@types/reactstrap": "4",
     "bootstrap": "4",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
@@ -15,7 +16,7 @@
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.0.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
