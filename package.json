@@ -9,6 +9,7 @@
     "@types/react-dom": "^16.0.7",
     "@types/react-router-dom": "^4.3.1",
     "@types/reactstrap": "4",
+    "axios": "^0.18.0",
     "bootstrap": "4",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
