@@ -1,54 +1,56 @@
-import React, { Component } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-export type AppState = {
-  isOpen: boolean;
-};
+const App = () => (
+  <Router>
+    <div>
+      <Header />
 
-class App extends Component<{}, AppState> {
-  constructor(props: any) {
-    super(props);
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/topics" component={Topics} />
+    </div>
+  </Router>
+);
 
-    this.toggle = this.toggle.bind(this);
-  }
+const Home = () => <h2>Home</h2>;
+const About = () => <h2>About</h2>;
+const Topic = ({ match }: { match: any }) => (
+  <h3>Requested Param: {match.params.id}</h3>
+);
+const Topics = ({ match }: { match: any }) => (
+  <div>
+    <h2>Topics</h2>
 
-  public readonly state: AppState = {
-    isOpen: false
-  };
+    <ul>
+      <li>
+        <Link to={`${match.url}/components`}>Components</Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+      </li>
+    </ul>
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">React App</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
-    );
-  }
-}
+    <Route path={`${match.path}/:id`} component={Topic} />
+    <Route
+      exact
+      path={match.path}
+      render={() => <h3>Please select a topic.</h3>}
+    />
+  </div>
+);
+const Header = () => (
+  <ul>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+    <li>
+      <Link to="/about">About</Link>
+    </li>
+    <li>
+      <Link to="/topics">Topics</Link>
+    </li>
+  </ul>
+);
 
 export default App;
