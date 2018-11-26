@@ -9,10 +9,16 @@ class Header extends Component<{}, {}> {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/patients">Patients</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/akalliokoski/fhir-patient-creator"
+          >
+            Github
+          </a>
         </li>
       </ul>
     );
