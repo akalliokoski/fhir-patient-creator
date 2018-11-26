@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { createFhirPatient, fetchFhirPatient } from '../utils/util';
+import { createFhirPatient, fetchFhirPatient } from '../utils/utils';
 
 // Action types
 export const CREATE_PATIENT = 'CREATE_PATIENT';
 export const ADD_PATIENT = 'ADD_PATIENT';
 export const SET_PATIENT = 'SET_PATIENT';
-export const SET_ACTIVE_PATIENT = 'SET_ACTIVE_PATIENT';
+export const SET_PATIENT_SELECTED = 'SET_PATIENT_SELECTED';
 
 function addPatient(patient: any) {
   return {
@@ -21,9 +21,9 @@ function setPatient(patient: any) {
   };
 }
 
-function setActivePatient(id: string) {
+function setPatientSelected(id: string) {
   return {
-    type: SET_ACTIVE_PATIENT,
+    type: SET_PATIENT_SELECTED,
     payload: id
   };
 }
@@ -40,7 +40,7 @@ export function createPatient() {
 
 export function selectPatient(id: string) {
   return async (dispatch: Function, getState: Function) => {
-    dispatch(setActivePatient(id));
+    dispatch(setPatientSelected(id));
 
     const { patients } = getState();
     const patient = patients[id];

@@ -5,7 +5,7 @@ import { selectPatient } from '../../actions';
 const mapStateToProps = state => {
   return {
     patientIds: Object.keys(state.patients),
-    activeId: state.activePatientId
+    selectedId: state.selectedPatientId
   };
 };
 

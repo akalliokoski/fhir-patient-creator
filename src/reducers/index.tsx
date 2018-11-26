@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_PATIENT, SET_ACTIVE_PATIENT } from '../actions';
+import { ADD_PATIENT, SET_PATIENT_SELECTED } from '../actions';
 
 // TODO: define AppState interface
 
@@ -21,9 +21,9 @@ function patients(state = DEFAULT_PATIENTS_STATE, action: any) {
   }
 }
 
-function activePatientId(state = null, action: any) {
+function selectedPatientId(state = null, action: any) {
   switch (action.type) {
-    case SET_ACTIVE_PATIENT:
+    case SET_PATIENT_SELECTED:
       return action.payload;
     default:
       return state;
@@ -32,7 +32,7 @@ function activePatientId(state = null, action: any) {
 
 const rootReducer = combineReducers({
   patients,
-  activePatientId
+  selectedPatientId
 });
 
 export default rootReducer;
