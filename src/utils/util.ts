@@ -29,9 +29,9 @@ export const generatePatientResource = (uuid: string) => {
 export const createFhirPatient = async () => {
   const uuid = await generateUUIDv4();
   const resource = generatePatientResource(uuid);
-  const response = await axios.post(
-    `${FHIR_BASE}/${resource.resourceType}`,
-    resource
-  );
-  return response;
+  return axios.post(`${FHIR_BASE}/${resource.resourceType}`, resource);
+};
+
+export const fetchFhirPatient = async (id: string) => {
+  return axios.get(`${FHIR_BASE}/Patient/${id}`);
 };
