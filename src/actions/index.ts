@@ -40,13 +40,13 @@ export function createPatient() {
 
 export function selectPatient(id: string) {
   return async (dispatch: Function, getState: Function) => {
-    dispatch(setPatientSelected(id));
-
     const { patients } = getState();
     const patient = patients[id];
     if (!patient) {
       const { data: fetchedData } = await fetchFhirPatient(id);
       dispatch(setPatient(fetchedData));
     }
+
+    dispatch(setPatientSelected(id));
   };
 }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_PATIENT, SET_PATIENT_SELECTED } from '../actions';
+import { ADD_PATIENT, SET_PATIENT, SET_PATIENT_SELECTED } from '../actions';
 
 // TODO: define AppState interface
 
@@ -15,6 +15,11 @@ function patients(state = DEFAULT_PATIENTS_STATE, action: any) {
       return {
         [action.payload.id]: null,
         ...state
+      };
+    case SET_PATIENT:
+      return {
+        ...state,
+        [action.payload.id]: action.payload
       };
     default:
       return state;

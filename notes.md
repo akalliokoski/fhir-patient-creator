@@ -1,4 +1,6 @@
 * use typescript everywhere
+    * also @types/fhir
+    * optinal interface properties
 * error handling
     * UUID generation
     * FHIR API (create, get, etc.)

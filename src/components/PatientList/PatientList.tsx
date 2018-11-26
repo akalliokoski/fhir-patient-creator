@@ -14,10 +14,13 @@ class PatientList extends Component<PatientListProps, {}> {
 
   renderItem(id: string, selectedId: string, onSelect: Function) {
     const isSelected = id === selectedId;
+    if (isSelected) {
+      return <li>{id} *</li>;
+    }
+
     return (
       <li onClick={evt => this.onClick(evt, onSelect, [id])} key={id}>
         <a href="">{id}</a>
-        <span>{isSelected ? ' *' : ''}</span>
       </li>
     );
   }
