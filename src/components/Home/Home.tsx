@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PatientListContainer from '../../containers/PatientListContainer/PatientListContainer';
 
 const FHIR_BASE = 'http://hapi.fhir.org/baseDstu3';
 const RESOURCE_TYPE_PATIENT = 'Patient';
@@ -50,6 +51,7 @@ class Home extends Component<{}, {}> {
     return (
       <div>
         <button onClick={this.createPatient}>Create Patient</button>
+        <PatientListContainer />
       </div>
     );
   }
