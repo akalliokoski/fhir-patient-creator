@@ -11,7 +11,7 @@ class Home extends Component<{}, {}> {
   render() {
     return (
       <main role="main" className="inner cover">
-        <h1 className="cover-heading">FHIR Patient Creator</h1>
+        <h1 className="cover-heading">My Kanta PHR Patient Creator</h1>
         <p className="lead">
           App for creating FHIR patient resources to Kanta PHR sandbox
           environment.
@@ -20,7 +20,7 @@ class Home extends Component<{}, {}> {
           <a
             href="#"
             onClick={this.onCreateButtonClick}
-            className="btn btn-lg btn-secondary"
+            className="btn btn-lg btn-primary"
           >
             Create New Patient
           </a>

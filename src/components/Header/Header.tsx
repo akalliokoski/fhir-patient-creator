@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from '../../assets/kanta_logotype_RGB_small.png';
 
 class Header extends Component<{}, {}> {
   render() {
     return (
       <header className="masthead mb-auto">
         <div className="inner">
-          <h3 className="masthead-brand">FHIR Patients</h3>
+          <div className="masthead-brand">
+            <img src={Logo} />
+          </div>
+
           <nav className="nav nav-masthead justify-content-center">
             <NavLink exact to="/" className="nav-link" activeClassName="active">
               Home
