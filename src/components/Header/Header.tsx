@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component<{}, {}> {
   render() {
@@ -8,15 +8,19 @@ class Header extends Component<{}, {}> {
         <div className="inner">
           <h3 className="masthead-brand">FHIR Patients</h3>
           <nav className="nav nav-masthead justify-content-center">
-            <Link className="nav-link active" to="/">
+            <NavLink exact to="/" className="nav-link" activeClassName="active">
               Home
-            </Link>
-            <Link className="nav-link" to="/patients">
+            </NavLink>
+            <NavLink
+              to="/patients"
+              className="nav-link"
+              activeClassName="active"
+            >
               Patients
-            </Link>
-            <Link className="nav-link" to="/about">
+            </NavLink>
+            <NavLink to="/about" className="nav-link" activeClassName="active">
               About
-            </Link>
+            </NavLink>
             <a
               className="nav-link"
               target="_blank"
