@@ -14,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     this.unlistenHistory = history.listen((location, action) => {
-      this.fetchPatientIfPathChanged(location.pathname);
+      this.fetchPatientIfSelected();
     });
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
     this.unlistenHistory();
   }
 
-  fetchPatientIfPathChanged(pathname: string) {
+  fetchPatientIfSelected() {
     const patientId = getSelectedPatientId();
     if (!patientId) {
       return;
@@ -34,15 +34,17 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div>
-          <Header />
+        <div className="text-center">
+          <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <Header />
 
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/patients" component={Patients} />
-            <Route path="/about" component={About} />
-            <Route component={NoMatch} />
-          </Switch>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/patients" component={Patients} />
+              <Route path="/about" component={About} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
         </div>
       </Router>
     );
