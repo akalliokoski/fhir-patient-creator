@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { getSelectedPatientId } from '../../utils/history';
 
 export interface PatientListProps {
   patientIds: Array<string>;
-  selectedId: string;
-  onSelect: Function;
 }
 
 class PatientList extends Component<PatientListProps, {}> {
-  onClick = (event: any, callback: any, args: Array<any>) => {
-    event.preventDefault();
-    callback(...args);
-  };
-
-  renderItem(id: string, selectedId: string, onSelect: Function) {
+  renderItem(id: string, selectedId: string | undefined) {
     const isSelected = id === selectedId;
     if (isSelected) {
-      return <li>{id} *</li>;
+      return <li key={id}>{id}</li>;
     }
 
     return (
-      <li onClick={evt => this.onClick(evt, onSelect, [id])} key={id}>
-        <a href="">{id}</a>
+      <li key={id}>
+        <Link to={`/patients/${id}`}>{id}</Link>
       </li>
     );
   }
 
   render() {
-    const { patientIds, selectedId, onSelect } = this.props;
-    return (
-      <ul>{patientIds.map(id => this.renderItem(id, selectedId, onSelect))}</ul>
-    );
+    const { patientIds } = this.props;
+    const selectedId = getSelectedPatientId();
+    return <ul>{patientIds.map(id => this.renderItem(id, selectedId))}</ul>;
   }
 }
 

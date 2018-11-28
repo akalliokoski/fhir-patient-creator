@@ -1,21 +1,18 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PatientList from '../../components/PatientList/PatientList';
-import { selectPatient } from '../../actions';
 
 const mapStateToProps = state => {
   return {
-    patientIds: Object.keys(state.patients),
-    selectedId: state.selectedPatientId
+    patientIds: Object.keys(state.patients)
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onSelect: id => dispatch(selectPatient(id))
-});
-
-const PatientListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PatientList);
+const PatientListContainer = withRouter(
+  connect(
+    mapStateToProps,
+    null
+  )(PatientList)
+);
 
 export default PatientListContainer;

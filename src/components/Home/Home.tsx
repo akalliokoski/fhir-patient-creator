@@ -7,9 +7,7 @@ class Home extends Component<{}, {}> {
   render() {
     return (
       <div>
-        <PatientCreatorContainer />
-        <PatientListContainer />
-        <PatientViewContainer />
+        <h1>Welcome</h1>
       </div>
     );
   }

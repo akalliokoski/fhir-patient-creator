@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PatientView from '../../components/PatientView/PatientView';
 
-const mapStateToProps = state => {
-  const { patients, selectedPatientId } = state;
+const mapStateToProps = (state, ownProps) => {
+  const { patients } = state;
+  const { patientId } = ownProps.match.params;
   return {
-    patient: patients[selectedPatientId]
+    patient: patients[patientId]
   };
 };
 
-const PatientViewContainer = connect(mapStateToProps)(PatientView);
+const PatientViewContainer = withRouter(connect(mapStateToProps)(PatientView));
 
 export default PatientViewContainer;

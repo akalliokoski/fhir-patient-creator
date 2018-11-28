@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { history } from '../utils/history';
 import { createFhirPatient, fetchFhirPatient } from '../utils/utils';
 
 // Action types
@@ -28,25 +28,25 @@ function setPatientSelected(id: string) {
   };
 }
 
+export function fetchPatient(id: string) {
+  return async (dispatch: Function, getState: Function) => {
+    const { patients } = getState();
+    const patient = patients[id];
+    if (patient) {
+      return Promise.resolve();
+    }
+
+    const { data: fetchedData } = await fetchFhirPatient(id);
+    dispatch(setPatient(fetchedData));
+  };
+}
+
 export function createPatient() {
   return async (dispatch: Function) => {
     const { data } = await createFhirPatient();
     dispatch(addPatient(data));
 
     const { id } = data;
-    return dispatch(selectPatient(id));
-  };
-}
-
-export function selectPatient(id: string) {
-  return async (dispatch: Function, getState: Function) => {
-    const { patients } = getState();
-    const patient = patients[id];
-    if (!patient) {
-      const { data: fetchedData } = await fetchFhirPatient(id);
-      dispatch(setPatient(fetchedData));
-    }
-
-    dispatch(setPatientSelected(id));
+    history.push(`/patients/${id}`);
   };
 }
