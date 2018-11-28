@@ -32,7 +32,7 @@ export function fetchPatient(id: string) {
   return async (dispatch: Function, getState: Function) => {
     const { patients } = getState();
     const patient = patients[id];
-    if (patient) {
+    if (!patient) {
       return Promise.resolve();
     }
 

@@ -4,11 +4,10 @@ import { store } from '../../utils/store';
 import { history, getSelectedPatientId } from '../../utils/route';
 import { fetchPatient } from '../../actions';
 import Header from '../Header/Header';
-import About from '../About/About';
 import Home from '../Home/Home';
-import PatientListContainer from '../../containers/PatientListContainer/PatientListContainer';
-import PatientCreatorContainer from '../../containers/PatientCreatorContainer/PatientCreatorContainer';
-import PatientViewContainer from '../../containers/PatientViewContainer/PatientViewContainer';
+import About from '../About/About';
+import Patients from '../Patients/Patients';
+import NoMatch from '../NoMatch/NoMatch';
 
 class App extends Component {
   unlistenHistory: any;
@@ -38,14 +37,12 @@ class App extends Component {
         <div>
           <Header />
 
-          <Route exact={true} path="/" components={Home} />
-
-          <Route component={PatientCreatorContainer} />
-          <Route component={PatientListContainer} />
-
-          <Route path="/patients/:patientId" component={PatientViewContainer} />
-
-          <Route path="/about" components={About} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/patients" component={Patients} />
+            <Route path="/about" component={About} />
+            <Route component={NoMatch} />
+          </Switch>
         </div>
       </Router>
     );
