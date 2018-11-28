@@ -43,6 +43,8 @@ export function fetchPatient(id: string) {
 
 export function createPatient() {
   return async (dispatch: Function) => {
+    history.push(`/patients`);
+
     const { data } = await createFhirPatient();
     dispatch(addPatient(data));
 

@@ -6,7 +6,7 @@ class Header extends Component<{}, {}> {
     return (
       <header className="masthead mb-auto">
         <div className="inner">
-          <h3 className="masthead-brand">Cover</h3>
+          <h3 className="masthead-brand">FHIR Patients</h3>
           <nav className="nav nav-masthead justify-content-center">
             <Link className="nav-link active" to="/">
               Home

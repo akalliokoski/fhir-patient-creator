@@ -34,17 +34,15 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div className="text-center">
-          <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <Header />
+        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+          <Header />
 
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/patients" component={Patients} />
-              <Route path="/about" component={About} />
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/patients" component={Patients} />
+            <Route path="/about" component={About} />
+            <Route component={NoMatch} />
+          </Switch>
         </div>
       </Router>
     );
