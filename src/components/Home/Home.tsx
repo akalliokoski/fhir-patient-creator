@@ -11,7 +11,9 @@ class Home extends Component<{}, {}> {
   render() {
     return (
       <main role="main" className="inner cover">
-        <h1 className="cover-heading">
+        <h1 className="cover-heading">FHIR Patient Creator</h1>
+        <p className="lead">
+          App for creating FHIR patient resources in{' '}
           <a
             href="https://www.kanta.fi/en/system-developers/my-kanta-pages-phr"
             target="_blank"
@@ -19,16 +21,12 @@ class Home extends Component<{}, {}> {
           >
             My Kanta PHR
           </a>{' '}
-          Patient Creator
-        </h1>
-        <p className="lead">
-          App for creating FHIR patient resources in{' '}
           <a
             href="http://fhirsandbox.kanta.fi/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Kanta PHR sandbox environment
+            sandbox environment
           </a>
           .
         </p>

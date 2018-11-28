@@ -8,6 +8,7 @@ import Home from '../Home/Home';
 import About from '../About/About';
 import Patients from '../Patients/Patients';
 import NoMatch from '../NoMatch/NoMatch';
+import Footer from '../Footer/Footer';
 
 class App extends Component {
   unlistenHistory: any;
@@ -43,6 +44,8 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route component={NoMatch} />
           </Switch>
+
+          <Footer />
         </div>
       </Router>
     );

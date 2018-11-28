@@ -112,10 +112,10 @@ body {
   padding: 0.75rem 1.25rem;
   font-weight: 700;
 }
-.cover a {
+.cover a:not(a) {
   border-bottom: 0.15rem solid rgba(255, 255, 255, 0.25);
 }
-.cover a:hover {
+.cover a:hover:not(a) {
   text-decoration: none;
   border-bottom-color: rgba(255, 255, 255, 1);
 }

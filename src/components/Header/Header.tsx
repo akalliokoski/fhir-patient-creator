@@ -8,7 +8,12 @@ class Header extends Component<{}, {}> {
       <header className="masthead mb-auto">
         <div className="inner">
           <div className="masthead-brand">
-            <img src={Logo} />
+            <a
+              className="nav-link"
+              href="https://www.kanta.fi/en/system-developers"
+            >
+              <img src={Logo} />
+            </a>
           </div>
 
           <nav className="nav nav-masthead justify-content-center">
