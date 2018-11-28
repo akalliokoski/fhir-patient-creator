@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { store } from '../../utils/store';
-import { history, getSelectedPatientId } from '../../utils/history';
+import { history, getSelectedPatientId } from '../../utils/route';
 import { fetchPatient } from '../../actions';
 import Header from '../Header/Header';
 import About from '../About/About';

@@ -1,4 +1,4 @@
-import { history } from '../utils/history';
+import { history } from '../utils/route';
 import { createFhirPatient, fetchFhirPatient } from '../utils/utils';
 
 // Action types

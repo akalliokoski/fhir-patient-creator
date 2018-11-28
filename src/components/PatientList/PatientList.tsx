@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getSelectedPatientId } from '../../utils/history';
+import { getSelectedPatientId } from '../../utils/route';
 
 export interface PatientListProps {
   patientIds: Array<string>;
